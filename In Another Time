@@ -1,0 +1,346 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "In Another Time", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroEnabled = false})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local itemsspawner = Tab:AddSection({
+	Name = "Item Giver"
+})
+
+local maptper = Window:MakeTab({
+	Name = "Map Tp's",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Itemtp = Window:MakeTab({
+	Name = "Item Tp's",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+itemsspawner:AddButton({
+	Name = "Give Arrow",
+	Callback = function()
+    game:GetService("ReplicatedStorage").ItemGiver.GiveArrow:FireServer()
+end    
+})
+
+local items = Itemtp:AddSection({
+	Name = "Items"
+})
+
+local funmain = Tab:AddSection({
+	Name = "Fun"
+})
+
+items:AddButton({
+	Name = "Dio's Bone",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        game.Workspace:WaitForChild("Dio's Bone")
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace["Dio's Bone"].Handle.CFrame
+end   
+})
+
+items:AddButton({
+	Name = "Dio's Diary",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        game.Workspace:WaitForChild("Dio's Diary")
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace["Dio's Diary"].Handle.CFrame
+end   
+})
+
+items:AddButton({
+	Name = "Requiem Arrow",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        game.Workspace:FindFirstChild("Requiem Arrow")
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace["Requiem Arrow"].Handle.CFrame
+end   
+})
+local npcs = maptper:AddSection({
+	Name = "NPCS"
+})
+
+local mapplaces = maptper:AddSection({
+	Name = "Map TP's"
+})
+
+local plrtp = maptper:AddSection({
+	Name = "Tp 2 Player"
+})
+
+plrtp:AddTextbox({
+	Name = "GoTo",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(plr)
+		local function get_player_from_partial(s)
+            s = s:lower()
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if s == player.Name:lower():sub(1, #s) then
+                    return player
+                end
+            end
+            return nil
+        end
+        local target = get_player_from_partial(plr)
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        game.Workspace:WaitForChild(tostring(target))
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace:WaitForChild(tostring(target))["HumanoidRootPart"].CFrame
+	end	  
+})
+
+npcs:AddButton({
+	Name = "{NPC} Pucci",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace.Map.Pucci["Left Arm"].CFrame
+end    
+})
+
+npcs:AddButton({
+	Name = "{NPC} ZeFrozes",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace.Map.ZeFrozes["Left Arm"].CFrame
+end    
+})
+
+npcs:AddButton({
+	Name = "{NPC} Choombus",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace.Map.choombus["Left Arm"].CFrame
+end    
+})
+
+
+mapplaces:AddButton({
+	Name = "Arrow Shop",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = CFrame.new(-632, -4, 1708)
+end    
+})
+
+npcs:AddButton({
+	Name = "{NPC} Zeppeli",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace.Map["Anthonio Zeppeli"].Head.CFrame
+end    
+})
+
+npcs:AddButton({
+	Name = "{NPC} Kars",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = game.Workspace.Map["Kars"].Head.CFrame
+end    
+})
+
+mapplaces:AddButton({
+	Name = "1v1 Arena",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = CFrame.new(-562, 1, 1341)
+end    
+})
+
+
+mapplaces:AddButton({
+	Name = "Fire Camp",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = CFrame.new(-855, -5, 1799)
+end    
+})
+
+mapplaces:AddButton({
+	Name = "Stand Storage",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = CFrame.new(-733, -4, 1603)
+end    
+})
+
+mapplaces:AddButton({
+	Name = "Merch Store",
+	Callback = function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        pl.CFrame = CFrame.new(-717, -4, 1526)
+end    
+})
+
+
+
+funmain:AddTextbox({
+	Name = "Kill",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(plr)
+		local function get_player_from_partial(s)
+            s = s:lower()
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if s == player.Name:lower():sub(1, #s) then
+                    return player
+                end
+            end
+            return nil
+        end
+        local target = get_player_from_partial(plr)
+        game:GetService("ReplicatedStorage").Attacks.DamageHamonOrVamp:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid,9999,CFrame.new(-817, -3, 1613),9999,BrickColor.new("New Yeller"),9999,"rbxassetid://542443306",1)
+        game:GetService("ReplicatedStorage").Attacks.DamageBlunt:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid,9999,CFrame.new(-817, -3, 1613),9999,BrickColor.new("New Yeller"),9999,"rbxassetid://542443306",1)
+	end	  
+})
+
+funmain:AddButton({
+	Name = "Bypass TS",
+	Callback = function()
+        local tsvalue = game.Lighting.TS
+            if tsvalue.Value == true then
+		    tsvalue.Value = false
+	end
+end
+})
+funmain:AddButton({
+	Name = "20 Sec TS (only works if you have The World)",
+	Callback = function()
+    game:GetService("ReplicatedStorage").SpecialMoves.Timestop:FireServer(21,"Jotaro")
+  	end    
+})
+
+local CredsTab = Window:MakeTab({
+    Name = "Credits",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local creditslol = CredsTab:AddSection({
+	Name = "Credits <3"
+})
+creditslol:AddLabel("Credits to Paq#3805")
+creditslol:AddLabel("Credits to wulu#0827")
+creditslol:AddLabel("Credits to bacon#3107")
+creditslol:AddLabel("Credits to Javv1721#1947")
+
+funmain:AddTextbox({
+	Name = "Ragdoll",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(plrtoknock)
+		local function get_player_from_partial(s)
+            s = s:lower()
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if s == player.Name:lower():sub(1, #s) then
+                    return player
+                end
+            end
+            return nil
+        end
+        local target = get_player_from_partial(plrtoknock)
+        game:GetService("ReplicatedStorage").Basic.Ragdoll:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid)
+	end	  
+})
+
+funmain:AddTextbox({
+	Name = "Heaven Ascend",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(plrtoascend)
+		local function get_player_from_partial(s)
+            s = s:lower()
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if s == player.Name:lower():sub(1, #s) then
+                    return player
+                end
+            end
+            return nil
+        end
+        local target = get_player_from_partial(plrtoascend)
+        game:GetService("ReplicatedStorage").Attacks.DamageBlunt:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid,0.1,CFrame.new(-817, -3, 1613),0.1,BrickColor.new("New Yeller"),0.6,"rbxassetid://542443306",1)
+        game:GetService("ReplicatedStorage").Attacks.DamageBlunt:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid,0.1,CFrame.new(-817, -3, 1613),0.1,BrickColor.new("New Yeller"),0.6,"rbxassetid://542443306",1)
+        game:GetService("ReplicatedStorage").Attacks.DamageBlunt:FireServer(workspace:FindFirstChild(tostring(target)).Humanoid,0.1,CFrame.new(-817, -3, 1613),0.1,BrickColor.new("New Yeller"),0.6,"rbxassetid://542443306",1)
+	end	  
+})
+
+local humanoidsettings = Tab:AddSection({
+	Name = "WalkSpeed/JumpPower"
+})
+
+humanoidsettings:AddSlider({
+	Name = "Walkspeed",
+	Min = 16,
+	Max = 5000,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 16,
+	ValueName = "Walkspeed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Value
+	end    
+})
+
+humanoidsettings:AddSlider({
+	Name = "Jump Power",
+	Min = 50,
+	Max = 1000,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 16,
+	ValueName = "Jump Power",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Value
+	end    
+})
